@@ -90,7 +90,7 @@
 			<version>1</version>
 		</dependency>
 				
-		<!-- Servlet Version Up 이유: JUnit에서 error 발생 -->
+		<!-- Servlet 버전업:왜? JUnit에서 에러발생 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -109,14 +109,14 @@
 			<version>1.2</version>
 		</dependency>
 	
-		<!-- Test Version Up 처리 -->
+		<!-- Test 버전업 처리 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>    
-		<!-- mybatis 사용 --> 
+		<!-- 마이바티스 사용 --> 
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
