@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="sampleMapper">
+<!-- 아이디, 비밀번호, 사용자명, 이메일, 등록일자, 수정일자 insert문 -->
 <insert id="memberInsert">
-INSERT INTO member 
+INSERT INTO member
 (userid, userpw, username, email, regdate, updatedate)
 VALUES (
 #{userid},#{userpw},#{username}
 ,#{email},SYSDATE,SYSDATE
 )
 </insert>
+<!-- 등록일자 내림차순 select문 -->
 <select id="memberSelect" resultType="com.human.vo.MemberVO">
 select * from member order by regdate desc
 </select>
+<!-- where 조건 참일 시 실행 select문 -->
 <select id="memberView" resultType="com.human.vo.MemberVO">
 select * from member where userid = #{userid}
 </select>
+<!-- 회원정보 update문 -->
 <update id="memberUpdate">
 update member set 
 userpw = #{userpw}
@@ -24,6 +28,7 @@ userpw = #{userpw}
 ,updatedate = #{updatedate}
 where userid = #{userid}
 </update>
+<!-- 회원정보 delete문 -->
 <delete id="memberDelete">
 delete from member where userid = #{userid}
 </delete>

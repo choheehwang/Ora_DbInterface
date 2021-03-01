@@ -20,7 +20,7 @@ import com.human.vo.MemberVO;
 @ContextConfiguration(locations ={"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
 public class TestMemberService {
 	@Inject
-	private DataSource dataSource;//객체,오브젝트
+	private DataSource dataSource;//객체(오브젝트)
 	@Inject
 	private MemberService memberService;
 	
@@ -58,16 +58,17 @@ public class TestMemberService {
 	}
 	@Test
 	public void memberSelect() throws Exception {
-		//JUnit으로 멤버서비스 CRUD중 View,Read 셀렉트테스트
+		//JUnit으로 MemberService CRUD 중 View, Read SELECT Test
 		System.out.println("디버그1개레코드:"+memberService.memberView("user2"));
 		System.out.println("디버그다중레코드:"+memberService.memberSelect());
 	}
 	@Test
 	public void oracle_connect() throws SQLException {
 		Connection connect = dataSource.getConnection();
-		//DB커넥트를 new 키워드로 만들지 않고, get방식을 사용하는 이유(아래)
-		//new키워드 객체를 만들게 허용하면, 객체를 계속 생성이 가능합니다.(부담)
-		//한번 커넥션이 되면, 커넥션을 2번이상 호출하지 않게 됩니다.static 싱글톤클래스
+		//DB커넥트를 new로 생성하지 않고 get방식을 사용하는 이유?
+		//new로 만들게 허용하면 객체 계속 생성이 가능하지만 부담되게 됨
+		//그러므로 한번 커넥션이 되면 커넥션을 2번이상 호출하지 않게 함
+		//static 싱글톤 클래스
 		System.out.println("현재 접속된 DB커넥션은 "+connect);
 	}
 	@Test
