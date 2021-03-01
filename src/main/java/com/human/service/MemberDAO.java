@@ -13,23 +13,23 @@ import com.human.vo.MemberVO;
 public class MemberDAO {
 	@Inject
 	private SqlSession sqlSession;
-
+	
 	public void memberInsert(MemberVO memberVO) throws Exception {
 		sqlSession.insert("sampleMapper.memberInsert", memberVO);
 	}
-
+	
 	public List<MemberVO> memberSelect() throws Exception {
 		return sqlSession.selectList("sampleMapper.memberSelect");
 	}
-
+	
 	public MemberVO memberView(String userid) throws Exception {
 		return sqlSession.selectOne("sampleMapper.memberView", userid);
 	}
-
+	
 	public void memberUpdate(MemberVO memberVO) throws Exception {
 		sqlSession.update("sampleMapper.memberUpdate", memberVO);
 	}
-
+	
 	public void memberDelete(String userid) throws Exception {
 		sqlSession.delete("sampleMapper.memberDelete", userid);
 	}
