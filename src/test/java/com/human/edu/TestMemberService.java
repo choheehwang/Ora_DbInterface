@@ -72,7 +72,7 @@ public class TestMemberService {
 	}
 	@Test
 	public void junit_test() {
-		System.out.println("JUnit실행확인 메서드!");
+		System.out.println("JUnit실행확인 메서드");
 	}
 	
 }
